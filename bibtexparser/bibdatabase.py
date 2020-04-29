@@ -113,7 +113,7 @@ class BibDatabase(object):
             return BibDataStringExpression.expand_if_expression(
                 self.strings[name])
         except KeyError:
-            raise(UndefinedString(name))
+            return "" # TODO quick hack since was raising exceptions
 
     def _add_missing_from_crossref_entry(self, entry, dependencies=set()):
         if entry['ID'] in self._crossref_updated:
